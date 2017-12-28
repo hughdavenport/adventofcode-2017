@@ -12,7 +12,7 @@ func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Usage: ")
 		fmt.Println()
-		fmt.Println(os.Args[0] + " <file>")
+		fmt.Println(os.Args[0] + " <file> [part2]")
 		os.Exit(1)
 	}
 	filename := os.Args[1]
@@ -20,6 +20,10 @@ func main() {
 	if err != nil {
 		fmt.Println("Error: ", err)
 		os.Exit(2)
+	}
+	decreaseBigJumps := false
+	if len(os.Args) == 3 {
+		decreaseBigJumps = true
 	}
 	lines := strings.Split(strings.TrimSpace(string(data)), "\n")
 	instructions := make([]int, len(lines))
@@ -39,6 +43,9 @@ func main() {
 		sum += 1
 		if pc < 0 || pc >= len(instructions) {
 			break
+		}
+		if decreaseBigJumps && instructions[pc] > 3 {
+			instructions[pc] -= 2
 		}
 	}
 
