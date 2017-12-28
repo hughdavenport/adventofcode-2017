@@ -23,6 +23,7 @@ func main() {
 		fmt.Println(0)
 		return
 	}
+	// bottom corner is odd number squared incremented, so square root
 	ringEnd := 1
 	ringIndex := 1
 	for ringEnd < input {
