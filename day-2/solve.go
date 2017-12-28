@@ -12,7 +12,7 @@ func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Usage: ")
 		fmt.Println()
-		fmt.Println(os.Args[0] + " <file> [part2]")
+		fmt.Println(os.Args[0] + " <file>")
 		os.Exit(1)
 	}
 	filename := os.Args[1]
